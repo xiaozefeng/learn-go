@@ -5,6 +5,8 @@ import (
 	"log"
 	"fmt"
 	"strconv"
+	"os"
+	"bufio"
 )
 
 func main() {
@@ -27,13 +29,15 @@ func main() {
 		convertToBin(13),
 		convertToBin(797),
 	)
+	fmt.Println("--------------------")
 
+	printFile("a.txt")
 
 }
 
 func convertToBin(n int) string {
 	result := ""
-	for ; n >0 ; n /=2 {
+	for ; n > 0; n /= 2 {
 		lsb := n % 2
 		result = strconv.Itoa(lsb) + result
 	}
@@ -59,4 +63,19 @@ func grade(score int) string {
 		panic(fmt.Sprintf("Wrong scorr: %d", score))
 
 	}
+}
+
+/**
+读取文件
+ */
+func printFile(filename string) {
+	file, err := os.Open(filename)
+	if err != nil {
+		panic(err)
+	}
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+	}
+
 }
