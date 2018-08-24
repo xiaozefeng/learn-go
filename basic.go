@@ -16,7 +16,7 @@ func variables() {
 	fmt.Println(s1, s2)
 	s := strconv.Itoa(1)
 	fmt.Println(s)
-	i, _:= strconv.Atoi(s)
+	i, _ := strconv.Atoi(s)
 	fmt.Println(i)
 	bb := []byte(s)
 	fmt.Println(bb)
@@ -26,12 +26,11 @@ func variables() {
 }
 
 func enums() {
-	const(
+	const (
 		golang = iota
 		java
 		python
 		javascript
-
 	)
 	fmt.Println(golang, java, python, javascript)
 }

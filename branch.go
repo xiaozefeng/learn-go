@@ -1,12 +1,12 @@
 package main
 
 import (
+	"bufio"
+	"fmt"
 	"io/ioutil"
 	"log"
-	"fmt"
-	"strconv"
 	"os"
-	"bufio"
+	"strconv"
 )
 
 func main() {
@@ -45,8 +45,8 @@ func convertToBin(n int) string {
 }
 
 /**
- 计算成绩
- */
+计算成绩
+*/
 func grade(score int) string {
 	switch {
 	case score < 60:
@@ -67,7 +67,7 @@ func grade(score int) string {
 
 /**
 读取文件
- */
+*/
 func printFile(filename string) {
 	file, err := os.Open(filename)
 	if err != nil {

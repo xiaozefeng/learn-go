@@ -20,8 +20,8 @@ func main() {
 	fmt.Println("copy slice")
 	copy(s1, s)
 	printSlice(s1)
-    // s1 = data=[0 1 2 3 4 5 6 7 8 9 0 0 0 0 0 0], length=16, cap=16
-    // now delete 3
+	// s1 = data=[0 1 2 3 4 5 6 7 8 9 0 0 0 0 0 0], length=16, cap=16
+	// now delete 3
 	fmt.Println("delete element from slice")
 	s1 = append(s1[:3], s1[4:]...)
 	fmt.Println(s1)
@@ -38,9 +38,8 @@ func main() {
 	fmt.Println(end)
 	fmt.Println(s5)
 
-
 }
 
-func printSlice(s [] int) {
+func printSlice(s []int) {
 	fmt.Printf("data=%v, length=%d, cap=%d\n", s, len(s), cap(s))
 }

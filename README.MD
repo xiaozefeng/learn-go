@@ -207,3 +207,32 @@ delete(m, key)
 
 ```
 
+## struct 结构体
+```go
+// 定义 Node 为结构体名称
+type Node struct{
+	// 属性
+	value int
+	left, right *Node
+}
+// 初始化
+var node Node
+// 空对象
+node := &Node{}
+node := new(Node) // 和上面是等值的
+// 赋值并初始化
+node := &Node{value: 3}
+
+// 定义method
+func (node Node) print(){
+	fmt.Println(node.value)
+}
+node.print()  //使用
+// 需要注意的是，这里的node 是值传递, 如果要传指针 
+func (node *Node) setValue(value int){
+	node.value = value
+}
+
+
+```
+

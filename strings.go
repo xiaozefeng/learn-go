@@ -29,7 +29,7 @@ func main() {
 	}
 	fmt.Println()
 
-	for i,ch := range []rune(s) {
+	for i, ch := range []rune(s) {
 		fmt.Printf("(%d, %c)  ", i, ch)
 	}
 }

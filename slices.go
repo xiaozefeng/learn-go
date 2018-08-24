@@ -27,6 +27,6 @@ func main() {
 
 }
 
-func updateSlice(s [] int) {
+func updateSlice(s []int) {
 	s[0] = 100
 }

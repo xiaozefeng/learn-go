@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"reflect"
 	"runtime"
-	"math"
 )
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
 		div(13, 3),
 	)
 	fmt.Println("----------")
-	fmt.Println(apply(3, 4, pow));
+	fmt.Println(apply(3, 4, pow))
 	fmt.Println("------------------")
 	fmt.Println(apply(3, 4, func(a int, b int) int {
 		return int(math.Pow(float64(a), float64(b)))
