@@ -238,5 +238,20 @@ func (node *Node) setValue(value int){
 
 ### interface 接口
 ```go
+// 定义接口
+type Writer interface{
+	write() bool
+}
+//  duck typing 是动态类型的一种风格
+// 当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子
+// 在这种风格中，一个对象有效的语义，不是由继承自特定的类或实现特定的接口，而是由"当前方法和属性的集合"决定
+type FileWriter struct{
+	content string
+}
+// FileWriter 的方法
+func (w FileWriter) write() bool{
+	return true
+}
+// 可以说FileWriter 实现了Writer接口
 
 ```
