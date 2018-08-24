@@ -232,7 +232,7 @@ node.print()  //使用
 func (node *Node) setValue(value int){
 	node.value = value
 }
-
+// 如果可以用指针接收就尽量使用指针接受
 
 ```
 

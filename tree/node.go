@@ -1,32 +1,19 @@
-package main
+package tree
 
 import "fmt"
 
-type treeNode struct {
-	value       int
-	left, right *treeNode
+type Node struct {
+	Value       int
+	Left, Right *Node
 }
 
-func (node treeNode) print() {
-	fmt.Println(node.value)
+func (node Node) Print() {
+	fmt.Println(node.Value)
 }
-func (node *treeNode) setValue(value int) {
-	node.value = value
-}
-
-func main() {
-	var root treeNode
-	root = treeNode{value: 3}
-	root.print()
-	root.left = &treeNode{}
-	root.right = &treeNode{5, nil, nil}
-	root.right.left = createNode(3)
-	root.print()
-	root.setValue(5)
-	root.print()
-
+func (node *Node) SetValue(value int) {
+	node.Value = value
 }
 
-func createNode(value int) *treeNode {
-	return &treeNode{value: value}
+func CreateNode(value int) *Node {
+	return &Node{Value: value}
 }
