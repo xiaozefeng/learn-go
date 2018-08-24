@@ -1,8 +1,8 @@
 package main
 
 import (
-	"imooc.com/learn-go/queue"
 	"fmt"
+	"imooc.com/learn-go/queue"
 )
 
 func main() {
