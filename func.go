@@ -24,6 +24,13 @@ func main() {
 	fmt.Println(apply(3, 4, func(a int, b int) int {
 		return int(math.Pow(float64(a), float64(b)))
 	}))
+	fmt.Println("------------")
+	a, b := 3, 4
+	swap(&a, &b)
+	fmt.Println(a, b)
+	fmt.Println("-----------------")
+	a, b = swap1(a, b)
+	fmt.Println(a, b)
 }
 
 func pow(a, b int) int {
@@ -56,4 +63,12 @@ func apply(a, b int, op func(int, int) int) int {
 // 13/3  4...1
 func div(a, b int) (int, int) {
 	return a / b, a % b
+}
+
+func swap(a, b *int) {
+	*b, *a = *a, *b
+}
+
+func swap1(a, b int) (int, int) {
+	return b, a
 }
