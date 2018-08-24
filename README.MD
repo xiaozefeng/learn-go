@@ -5,6 +5,7 @@
 在go语言中，变量申明了必须使用，否则编译报错， 如果有时候要忽略方法的返回值使用 _ 接收就不会报错了
 在go语言中，变量名在前，类型在后
 在go语言中，只有值传递没有引用传递，需要改变传递的参数的值时，可以传递一个指针
+rune 相当于go 的char
 ```
 ## Variables
 ### 变量类型
@@ -184,4 +185,25 @@ m := map[string]string{
     "age": "18",
 }
 
+m1 := make(map[string]int) // empty map
+
+var m2 map[string]int // zero value is nil
+
+// 遍历
+for k, v range m {}
+for k range m {}
+for _,v range m{}
+// 根据key 获取 value
+v := m[k]
+// 判断可以是否存在
+if v, ok := m[k] ; ok{
+	fmt.Println(v)
+}else {
+	fmt.Println("key doesn't exist")
+}
+
+// delete element
+delete(m, key)
+
 ```
+
