@@ -9,8 +9,8 @@ type myTreeNode struct {
 	node *tree.Node
 }
 
-func (myNode *myTreeNode) postOrder()  {
-	if myNode == nil || myNode.node == nil{
+func (myNode *myTreeNode) postOrder() {
+	if myNode == nil || myNode.node == nil {
 		return
 	}
 	left := myTreeNode{myNode.node.Left}
