@@ -236,3 +236,7 @@ func (node *Node) setValue(value int){
 
 ```
 
+### interface 接口
+```go
+
+```
