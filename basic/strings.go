@@ -1,8 +1,11 @@
-package basic
+package main
 
 import (
+	"bufio"
 	"fmt"
+	"io"
 	"unicode/utf8"
+	"strings"
 )
 
 func main() {
@@ -31,5 +34,17 @@ func main() {
 
 	for i, ch := range []rune(s) {
 		fmt.Printf("(%d, %c)  ", i, ch)
+	}
+	str := `
+s
+hsalfhsalgjlsafhsalhsalg
+asgaslgh`
+	printFileContents(strings.NewReader(str))
+}
+
+func printFileContents(reader io.Reader) {
+	scanner := bufio.NewScanner(reader)
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
 	}
 }

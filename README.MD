@@ -253,5 +253,19 @@ func (w FileWriter) write() bool{
 	return true
 }
 // 可以说FileWriter 实现了Writer接口
+// 接口组合
+type Writer interface{
+	write()
+}
+type Reader interface{
+	read()
+}
+// 组合
+type WriterAndReader interface {
+	Writer
+	Reader
+}
+// 内置接口
+// toString
 
 ```
