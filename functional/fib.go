@@ -8,12 +8,12 @@ import (
 )
 
 func main() {
-	f := fib()
+	f := fibonacci()
 	printFileContents(f)
 }
 
 // 斐波那契数列
-func fib() intGen {
+func fibonacci() intGen {
 	a, b := 0, 1
 	return func() int {
 		a, b = b, a+b
