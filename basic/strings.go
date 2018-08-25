@@ -36,11 +36,12 @@ func main() {
 		fmt.Printf("(%d, %c)  ", i, ch)
 	}
 	str := `
-s
-hsalfhsalgjlsafhsalhsalg
-asgaslgh`
+	s
+	hsalfhsalgjlsafhsalhsalg
+	asgaslgh`
 	printFileContents(strings.NewReader(str))
 }
+
 
 func printFileContents(reader io.Reader) {
 	scanner := bufio.NewScanner(reader)

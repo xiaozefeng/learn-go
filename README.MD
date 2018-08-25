@@ -124,6 +124,8 @@ func swap(a, b int) (int ,int ){
 func apply(op func(int, int) (int, int), a,b int) (int ,int ){
     return op(a, b)
 }
+// 函数式编程
+// 函数式一等公民: 参数，变量，返回值都可以是函数
 ```
 
 ## Array 数组
@@ -266,6 +268,6 @@ type WriterAndReader interface {
 	Reader
 }
 // 内置接口
-// toString
-
+// Stringer
+// Reader/Writer
 ```
