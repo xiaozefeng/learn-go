@@ -271,3 +271,29 @@ type WriterAndReader interface {
 // Stringer
 // Reader/Writer
 ```
+
+### 资源管理与错误处理
+```go
+// defer  确保调用在函数结束时发生 (相当于finally)
+// 使用场景 :  Open/Close , Lock/Unlock , PrintHeader/PrintFooter
+// 多个defer 是先进后出的
+for i := 0; i < 3; i++ {
+		defer fmt.Print(i," ")
+}
+// 输出 2 1 0
+
+// 错误处理
+// error 接口
+type error interface {
+	Error() string
+}
+// 正确处理error
+if err != nil {
+    if pathError, ok:= err.(*os.PathError); !ok{
+        panic(err)
+    }else {
+        fmt.Printf("%s, %s, %s", pathError.Op, pathError.Path, pathError.Err)
+    }
+    return
+}
+```
