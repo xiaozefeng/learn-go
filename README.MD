@@ -297,3 +297,45 @@ if err != nil {
     return
 }
 ```
+
+### test 测试
+```go
+// 编写测试
+// 有一个 add.go 编写的测试文件叫 add_test.go
+// 需要测试的方法为 add(), 测试的方法为 TestAdd(t *testing.T)
+// example
+func TestAdd(t *testing.T) {
+	tests := []struct{ a, b, c int }{
+		{1, 2, 3},
+		{2, 2, 4},
+		{12, 21, 33},
+	}
+
+	for _, tt := range tests {
+		if actual := add(tt.a, tt.b); actual != tt.c {
+			t.Errorf("add(%d, %d); got %d; expected %d ",
+				tt.a, tt.b, actual, tt.c)
+		}
+	}
+}
+// 命令行执行测试
+go test .
+// 使用test.B 性能测试 
+func BenchmarkAdd(b *testing.B) {
+	a, c := 1, 2
+	ans := 3
+	actual := add(a, c)
+	for i := 0; i < b.N; i++ {
+		if ans != actual {
+			b.Errorf("got %d for input %d expected %d", actual, ans, actual)
+		}
+	}
+}
+// 命令行工具来查看性能损耗
+// 生成cpu.out文件
+go test -bench . -cpuprofile cpu.out
+// 进入pprof交互式环境
+go tool pprof cpu.out
+// 查看web, 需要安装 graphviz https://www.graphviz.org/
+web
+```
