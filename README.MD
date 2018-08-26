@@ -365,6 +365,26 @@ func ExampleQueue_Pop() {
 
 }
 ```
+### goroutine
+> 定义: 任何函数只需要加上go就能送给调度器运行  
+> 不需要在定义时区分是否是异步函数  
+> 调度器在合适的点进行切换  
+> 可以使用-race来检测数据访问冲突  
+> goroutine `可能` 切换的点: I/O, select, channel, 等待锁, 函数调用(有时), runtime.GoSched()  
+> golang的routine是基于Communication Sequential Process(CSP)
+> Don't communicate by sharing memory; share memory by communicating (不要通过共享内存来通信， 通过通信来共享内存)
+```
+轻量级线程
+非抢占式多任务处理，由协程主动交出控制权
+编译器/解释器/虚拟机层面的多任务
+多个协程可以在一个或多个线程上运行
+子程序是协程的一个特例
+```
+#### channel
+```go
+
+```
+
 
 
 
