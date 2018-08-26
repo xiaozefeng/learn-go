@@ -45,4 +45,14 @@ func main() {
 		nodeCount ++
 	})
 	fmt.Println(nodeCount)
+
+	fmt.Println("使用channel遍历节点")
+	c := root.TraverseWithChannel()
+	maxNode :=0
+	for node:= range c{
+		if node.Value > maxNode{
+			maxNode = node.Value
+		}
+	}
+	fmt.Println("max node value: ", maxNode)
 }

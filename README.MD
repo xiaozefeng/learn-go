@@ -382,7 +382,10 @@ func ExampleQueue_Pop() {
 ```
 #### channel
 ```go
-
+//select的使用
+// default 块的使用，非阻塞
+// time.After(time.Second) 定时查看系统状态， 控制程序运行时间， 超时控制
+// nil channel 可以使select 阻塞
 ```
 
 
