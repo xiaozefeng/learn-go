@@ -6,6 +6,9 @@
 在go语言中，变量名在前，类型在后
 在go语言中，只有值传递没有引用传递，需要改变传递的参数的值时，可以传递一个指针
 rune 相当于go 的char
+离线文档: godoc -http 4000
+go tour: go get golang.org/x/tour/gotour 
+使用 gotour
 ```
 ## Variables
 ### 变量类型
@@ -300,6 +303,7 @@ if err != nil {
 
 ### test 测试
 ```go
+// golang 是表格驱动测试的
 // 编写测试
 // 有一个 add.go 编写的测试文件叫 add_test.go
 // 需要测试的方法为 add(), 测试的方法为 TestAdd(t *testing.T)
@@ -338,4 +342,29 @@ go test -bench . -cpuprofile cpu.out
 go tool pprof cpu.out
 // 查看web, 需要安装 graphviz https://www.graphviz.org/
 web
+
+// 编写example
+// Example
+func ExampleQueue_Pop() {
+	q := Queue{1}
+	q.Push(2)
+	q.Push(3)
+	fmt.Println(q.Pop())
+	fmt.Println(q.Pop())
+	fmt.Println(q.IsEmpty())
+
+	fmt.Println(q.Pop())
+	fmt.Println(q.IsEmpty())
+
+	// Output:
+	// 1
+	// 2
+	// false
+	// 3
+	// true
+
+}
 ```
+
+
+
