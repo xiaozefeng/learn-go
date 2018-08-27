@@ -17,7 +17,7 @@ func main() {
 		point{len(maze) - 1, len(maze[0]) - 1})
 
 	fmt.Println()
-	for _, row := range steps{
+	for _, row := range steps {
 		for _, col := range row {
 			fmt.Printf("%2d ", col)
 		}
@@ -29,6 +29,7 @@ type point struct {
 	i, j int
 }
 
+// 上下左右四个方向
 var dirs = [4]point{
 	{-1, 0},
 	{0, -1},
@@ -71,6 +72,7 @@ func walk(maze [][]int, start, end point) [][]int {
 		for _, dir := range dirs {
 			next := cur.add(dir)
 
+			// 判断边界
 			// maze at next is 0
 			// and steps at next is 0
 			// next != start
@@ -106,6 +108,7 @@ func readMaze(filename string) [][]int {
 
 	var row, col int
 	fmt.Fscanf(file, "%d %d", &row, &col)
+	//fmt.Println(row, col)
 
 	// 行
 	maze := make([][]int, row)
@@ -115,6 +118,5 @@ func readMaze(filename string) [][]int {
 			fmt.Fscanf(file, "%d", &maze[i][j])
 		}
 	}
-	//fmt.Println(row, col)
 	return maze
 }
