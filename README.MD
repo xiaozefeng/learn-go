@@ -387,6 +387,16 @@ func ExampleQueue_Pop() {
 // time.After(time.Second) 定时查看系统状态， 控制程序运行时间， 超时控制
 // nil channel 可以使select 阻塞
 ```
+### 标准库
+```go
+// http
+// bufio 
+// encoding/json 
+// log 
+// regexp
+// time
+// strings/math/rand
+```
 
 
 
