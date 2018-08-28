@@ -9,6 +9,7 @@ import (
 	"golang.org/x/text/encoding"
 	"bufio"
 	"golang.org/x/net/html/charset"
+	"regexp"
 )
 
 func main() {
@@ -26,7 +27,16 @@ func main() {
 			panic(err)
 		}
 		fmt.Printf("%s\n", all)
+		printCityList(all)
 	}
+}
+func printCityList(contents []byte) {
+	re := regexp.MustCompile(`<a href="http://www.zhenai.com/zhenghun/[0-9a-z]+"[^>]*>[^<]+</a>`)
+	matches := re.FindAll(contents, -1)
+	for _, m :=range matches{
+		fmt.Printf("%s\n", m)
+	}
+	fmt.Printf("Matches found:%d", len(matches))
 }
 
 // 自动判断编码
