@@ -39,10 +39,18 @@ func (c *ConcurrentEngine) Run(seeds ...Request) {
 
 		for _, request := range result.Requests {
 			// 判断是否重复
+			if isDuplicate(request.Url) {
+				continue
+			}
 			c.Scheduler.Submit(request)
 		}
 	}
 
+}
+
+// todo
+func isDuplicate(url string) bool {
+	return false
 }
 
 func createWorker(in chan Request,
