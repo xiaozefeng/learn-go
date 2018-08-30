@@ -21,7 +21,7 @@ var xinzuoReg = regexp.MustCompile(`<td><span class="label">星座：</span><spa
 
 var educationReg = regexp.MustCompile(`<td><span class="label">学历：</span>([^<]+)</td>`)
 
-var occupationReg = regexp.MustCompile(`<td><span class="label">职业： </span>([^<]+)<</td>`)
+var occupationReg = regexp.MustCompile(`<td><span class="label">职业：</span><span field="">([^<]+)</span></td>`)
 
 var hokouReg = regexp.MustCompile(`<td><span class="label">籍贯：</span>([^<]+)</td>`)
 
@@ -31,7 +31,11 @@ var carReg = regexp.MustCompile(`<td><span class="label">是否购车：</span><
 
 var heightReg = regexp.MustCompile(`<td><span class="label">身高：</span><span field="">([0-9]+)CM</span></td>`)
 
-func ParseProfile(contents []byte, name string) engine.ParseResult {
+var idUrlRe= regexp.MustCompile(`http://album.zhenai.com/u/([\d]+)`)
+
+func ParseProfile(contents []byte,
+	url string,
+	name string) engine.ParseResult {
 	profile := model.Profile{}
 	age, err := strconv.Atoi(extractString(contents, ageReg))
 	if err == nil {
@@ -56,9 +60,20 @@ func ParseProfile(contents []byte, name string) engine.ParseResult {
 		profile.Height = height
 	}
 	result := engine.ParseResult{
-		Items: []interface{}{profile},
+		Items: []engine.Item{
+			{
+				Url:     url,
+				Type:    "zhenai",
+				Id:      extractString([]byte(url), idUrlRe),
+				Payload: profile,
+			},
+		},
 	}
+	// guess matches todo
+
+
 	return result
+
 }
 
 func extractString(contents []byte,
